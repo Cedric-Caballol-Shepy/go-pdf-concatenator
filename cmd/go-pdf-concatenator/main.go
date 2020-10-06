@@ -1,7 +1,36 @@
 package main
 
+import (
+	"fmt"
+	"log"
+	"os"
+	"path/filepath"
+
+	pdfcpu "github.com/pdfcpu/pdfcpu/pkg/api"
+)
+
 func main() {
-	print("test")
-	// filepath.Ext("file.pdf") == ".pdf"
-	// err = pdfcpu.MergeCreateFile(inputFiles, outputPath, nil) // inFiles []string, outputPath string
+	var filesToConcatenate []string
+
+	err := filepath.Walk(".", func(path string, info os.FileInfo, err error) error {
+		if info.IsDir() {
+			return nil
+		}
+		if filepath.Ext(path) == ".pdf" {
+			filesToConcatenate = append(filesToConcatenate, path)
+		}
+		return nil
+	})
+	if err == nil {
+		var outputName string
+		fmt.Println("Choose the pdf file name...")
+		_, err = fmt.Scan(&outputName)
+		if err == nil {
+			err = pdfcpu.MergeCreateFile(filesToConcatenate, outputName+".pdf", nil)
+		}
+	}
+
+	if err != nil {
+		log.Fatal(err)
+	}
 }
