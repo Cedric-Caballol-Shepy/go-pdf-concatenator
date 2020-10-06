@@ -21,7 +21,7 @@ func main() {
 		}
 		return nil
 	})
-	if err == nil {
+	if err == nil && len(filesToConcatenate) > 0 {
 		var outputName string
 		fmt.Println("Choose the pdf file name...")
 		_, err = fmt.Scan(&outputName)
