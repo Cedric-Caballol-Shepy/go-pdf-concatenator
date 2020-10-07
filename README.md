@@ -8,3 +8,7 @@ If no pdf is found, the program stops before asking for an output name.
 - [Windows](https://github.com/Cedric-Caballol-Shepy/go-pdf-concatenator/raw/master/binaries/windows-amd64/go-pdf-concatenator.exe)
 - [Linux](https://github.com/Cedric-Caballol-Shepy/go-pdf-concatenator/raw/master/binaries/linux-amd64/go-pdf-concatenator)
 - [MacOS](https://github.com/Cedric-Caballol-Shepy/go-pdf-concatenator/raw/master/binaries/darwin-amd64/go-pdf-concatenator)
+
+## Thanks
+
+This program works thanks to the people from [pdfcpu](https://github.com/pdfcpu/pdfcpu), go check their work ! 
